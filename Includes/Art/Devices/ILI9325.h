@@ -1,0 +1,14 @@
+#ifndef ILI9325_H
+#define ILI9325_H
+
+#include <Art/Device/TftPanel_C.h>
+
+namespace Art
+{
+	DEFINE_TFTPANEL_C(ILI9325_C0);
+	DEFINE_TFTPANEL_C(ILI9325_C90);
+	DEFINE_TFTPANEL_C(ILI9325_C180);
+	DEFINE_TFTPANEL_C(ILI9325_C270);
+}
+
+#endif
