@@ -25,7 +25,7 @@ namespace Art
 					const Color& color, const Color& background);
 			virtual void drawImageOnSurface(const Image* image, const Rectangle& box,
 					const Color& background);
-			virtual void fillSurfaceRectangle(Rectangle& box, const Color& color);
+			virtual void fillSurfaceRectangle(const Rectangle& box, const Color& color);
 			virtual void setSurfacePixel(Word x, Word y, const Color& color);
 			virtual void drawSurfaceLine(Word x0, Word y0, Word x1, Word y1, const Color& color);
 
