@@ -20,8 +20,6 @@ namespace Art
 		virtual ~Desktop();
 
 		Display* display() const;
-		Graphics* graphics();
-
 	private:
 		void update();
 		void updateObject(void* sender);
@@ -29,7 +27,6 @@ namespace Art
 		void setDisplay(Display* value);
 
 		Display*	m_display;
-		Graphics*	m_graphics;
 		Timer		m_updateTimer;
 
 		static Desktop s_desktop;
@@ -44,11 +41,6 @@ namespace Art
 	inline Display* Desktop::display() const
 	{
 		return m_display;
-	}
-
-	inline Graphics* Desktop::graphics()
-	{
-		return m_graphics;
 	}
 
 	inline Desktop* desktop()

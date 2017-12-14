@@ -45,7 +45,6 @@ namespace Art
 		Container* parent() const;
 		Point toScreenLocation(const Point pt);
 
-		Bool isVisible();
 		Bool isParentColor();
 		Bool isParentBackground();
 		Bool isParentFont();
@@ -242,11 +241,6 @@ namespace Art
 	inline void View::setParentFont(Bool value)
 	{
 		m_state.parentFont = value;
-	}
-
-	inline Bool View::isVisible()
-	{
-		return m_state.attached;
 	}
 
 	inline bool View::hasInputFocus() const

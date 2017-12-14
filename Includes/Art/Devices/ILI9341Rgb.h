@@ -23,7 +23,6 @@ namespace Art
 
 		virtual Graphics* beginUpdate();
 		virtual void endUpdate(Graphics* g);
-		virtual Graphics* createGraphics();
 		void setDoubleBuffered(Bool value);
 	protected:
 		virtual void executeCommand(UWord command);

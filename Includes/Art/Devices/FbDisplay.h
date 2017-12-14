@@ -27,15 +27,12 @@ namespace Art
 		void setBackBuffer(void* value);
 		void setFrontBuffer(void* value);
 		virtual Word pitch() = 0;
-		Rotation rotation() const;
-		void setRotation(Rotation value);
 
 	private:
 		virtual void updateFrameBuffer() = 0;
 
 		void*	m_frontBuffer;
 		void*	m_backBuffer;
-		Rotation	m_rotation;
 	};
 
 	inline void FbDisplay::setBackBuffer(void* value)
@@ -58,15 +55,6 @@ namespace Art
 		return m_backBuffer;
 	}
 
-	inline Rotation FbDisplay::rotation() const
-	{
-		return m_rotation;
-	}
-
-	inline void FbDisplay::setRotation(Rotation value)
-	{
-		m_rotation = value;
-	}
 
 } /* namespace Art */
 

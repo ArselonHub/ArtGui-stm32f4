@@ -8,6 +8,7 @@ namespace Art
 	class ILI9341Base : public Display
 	{
 	public:
+		virtual ~ILI9341Base();
 		void readDisplayIdentification(UInt& id);
 		UWord readPowerMode();
 		UWord readPixelFormat();
