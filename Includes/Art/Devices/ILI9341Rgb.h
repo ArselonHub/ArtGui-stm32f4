@@ -12,6 +12,7 @@ namespace Art
 	class ILI9341FbRgb565 : public ILI9341Base
 	{
 	public:
+		ILI9341FbRgb565();
 		void setDataSelectPin(Pin* value);
 		void setSpiPort(SpiPort* value);
 		void setSpiSelectPin(Pin* value);

@@ -29,7 +29,6 @@ namespace Art
 		virtual Word closeDevice();
 	private:
 		I2CDevice	m_i2cDevice;
-
 	};
 
 	inline I2CPort* Stmpe811I2C::i2cPort() const

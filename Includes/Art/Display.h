@@ -8,6 +8,7 @@ namespace Art
 	class Display
 	{
 	public:
+		Display();
 		virtual ~Display();
 		Result open();
 		virtual Graphics* beginUpdate() = 0;
