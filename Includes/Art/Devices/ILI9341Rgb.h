@@ -25,15 +25,17 @@ namespace Art
 		virtual Graphics* beginUpdate();
 		virtual void endUpdate(Graphics* g);
 		void setDoubleBuffered(Bool value);
+
 	protected:
+		virtual Word openDevice();
+
 		virtual void executeCommand(UWord command);
 		virtual void executeWrite(UWord command, const void* data, ShortL length);
 		virtual void executeRead(UWord command, void* data, ShortL length);
 		virtual void writeData(const void* data, ShortL length);
 		virtual void writeByte(UWord value);
-	private:
-		virtual void openPort();
 
+	private:
 		Pin*			m_dataSelectPin;
 		SpiMaster		m_spiMaster;
 		DisplayController*	m_displayController;

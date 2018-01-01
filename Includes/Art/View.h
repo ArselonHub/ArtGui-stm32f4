@@ -138,9 +138,12 @@ namespace Art
 			Bool	parentFont:1;
 		} m_state;
 
+		virtual void doRotationChanged(Rotation newRotation);
+
 		virtual void propagateColor(const Color& color);
 		virtual void propagateBackgroundColor(const Color& color);
 		virtual void propagateFont(const Font* font);
+		virtual void propagateRotation(Rotation newRotation);
 
 		void informLostFocus(View* root);
 		void informGotFocus(View* root);

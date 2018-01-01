@@ -2,6 +2,7 @@
 #define ART_DESKTOP_H
 
 #include <Art/Display.h>
+#include <Art/TouchSensor.h>
 #include <Art/View.h>
 #include <Art/Window.h>
 #include <Art/Timer.h>
@@ -20,14 +21,17 @@ namespace Art
 		virtual ~Desktop();
 
 		Display* display() const;
+
 	private:
 		void update();
 		void updateObject(void* sender);
 		void triggerUpdate();
 		void setDisplay(Display* value);
+		Word switchRotation(Rotation newValue);
 
-		Display*	m_display;
-		Timer		m_updateTimer;
+		Display*		m_display;
+		TouchSensor*	m_touchSensor;
+		Timer			m_updateTimer;
 
 		static Desktop s_desktop;
 
@@ -35,6 +39,8 @@ namespace Art
 		friend class Window;
 		friend class Application;
 		friend class Display;
+		friend class TouchSensor;
+
 		friend Desktop* desktop();
 	};
 

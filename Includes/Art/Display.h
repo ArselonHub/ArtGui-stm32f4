@@ -1,23 +1,28 @@
 #ifndef ART_DISPLAY_H
 #define ART_DISPLAY_H
 
+#include <Art/Device.h>
 #include <Art/Graphics.h>
 
 namespace Art
 {
-	class Display
+	class Display : public Device
 	{
 	public:
 		Display();
 		virtual ~Display();
-		Result open();
+
 		virtual Graphics* beginUpdate() = 0;
 		virtual void endUpdate(Graphics* g) = 0;
 		virtual Size surfaceSize() = 0;
 		Rotation rotation() const;
-		void setRotation(Rotation value);
+		Word setRotation(Rotation value);
+
+	protected:
+		virtual Word openDevice();
+
 	private:
-		virtual void openPort() = 0;
+		virtual Word switchRotation(Rotation newValue);
 
 		Rotation	m_rotation;
 	};
@@ -25,11 +30,6 @@ namespace Art
 	inline Rotation Display::rotation() const
 	{
 		return m_rotation;
-	}
-
-	inline void Display::setRotation(Rotation value)
-	{
-		m_rotation = value;
 	}
 
 }

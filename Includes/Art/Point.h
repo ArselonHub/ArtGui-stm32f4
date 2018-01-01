@@ -10,6 +10,7 @@ namespace Art
 	{
 	public:
 		Point();
+		Point(const Point& p);
 		Point(Word x, Word y);
 		void assign(Word x, Word y);
 		void assign(const Point& p);
@@ -45,6 +46,13 @@ namespace Art
 		m_x = 0;
 		m_y = 0;
 	}
+
+	inline Point::Point(const Point& p)
+	{
+		m_x = p.m_x;
+		m_y = p.m_y;
+	}
+
 
 	inline Point::Point(Word x, Word y)
 	{

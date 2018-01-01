@@ -31,13 +31,15 @@ namespace Art
 		void calibrate();
 		void calibrate(const Point* references, const Point* samples);
 		void test();
-		Word openWith(DataStore* dataStore);
 
 		const Point& location() const;
 		const Point& rawLocation() const;
 
-		virtual Word loadSettings(DataStore* dataStore);
-		virtual Word saveSettings(DataStore* dataStore);
+		Word restoreCalibration();
+		Word loadCalibration();
+		Word loadCalibration(DataStore* dataStore);
+		Word saveCalibration();
+		Word saveCalibration(DataStore* dataStore);
 
 	protected:
 		virtual void doEventOccured() = 0;
@@ -64,19 +66,31 @@ namespace Art
 			virtual void execute();
 		};
 
+		struct CalibrationData
+		{
+			Float kx1;
+			Float kx2;
+			Float kx3;
+			Float ky1;
+			Float ky2;
+			Float ky3;
+		};
+
+		void resetCalibration();
+		void applyRotation();
+
 		Thread*			m_thread;
 		EdgeDetector	m_edgeDetector;
 		EventTask		m_eventTask;
 		EventTimer		m_timer;
 		Bool			m_penDown;
-		Float			m_kx1;
-		Float			m_kx2;
-		Float			m_kx3;
-		Float			m_ky1;
-		Float			m_ky2;
-		Float			m_ky3;
+		CalibrationData	m_activeCalibration;
+		CalibrationData	m_defaultCalibration;
+
 		Point			m_rawLocation;
 		Point			m_location;
+
+		friend class Desktop;
 	};
 
 	inline const Thread* TouchSensor::thread() const
@@ -108,6 +122,7 @@ namespace Art
 	{
 		return m_rawLocation;
 	}
+
 } /* namespace Art */
 
 #endif /* SOURCE_ART_TOUCHSENSOR_H_ */

@@ -6,6 +6,9 @@
 
 namespace Art
 {
+
+	class Desktop;
+
 	class Container : public View
 	{
 	public:
@@ -30,11 +33,14 @@ namespace Art
 		virtual void setAttached(bool value);
 
 	private:
+
 		virtual void propagateColor(const Color& color);
 		virtual void propagateBackgroundColor(const Color& color);
 		virtual void propagateFont(const Font* font);
+		virtual void propagateRotation(Rotation newRotation);
 
 		friend View;
+		friend Desktop;
 	};
 }
 

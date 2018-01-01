@@ -5,10 +5,11 @@
  *      Author: denizcan
  */
 
-#ifndef SOURCE_ART_LOCAL_CALIBRATIONWINDOW_H_
-#define SOURCE_ART_LOCAL_CALIBRATIONWINDOW_H_
+#ifndef ART_LOCAL_CALIBRATIONWINDOW_H_
+#define ART_LOCAL_CALIBRATIONWINDOW_H_
 
 #include <Art/Window.h>
+#include <Art/Label.h>
 #include <Art/Timer.h>
 #include <Art/TouchSensor.h>
 
@@ -28,8 +29,11 @@ namespace Art
 		virtual void doMouseDown(MouseEventArgs* args);
 		virtual void doMouseMove(MouseEventArgs* args);
 		virtual void paint(Graphics* g);
+
 	private:
 		void animate(void* sender);
+		void updateLayout();
+		void finishCalibration();
 
 		enum State
 		{
