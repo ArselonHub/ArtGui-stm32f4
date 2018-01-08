@@ -6,17 +6,17 @@ or.h
  *      Author: denizcan
  */
 
-#ifndef SOURCE_ART_TOUCHSENSOR_H_
-#define SOURCE_ART_TOUCHSENSOR_H_
+#ifndef ART_TOUCHSENSOR_H_
+#define ART_TOUCHSENSOR_H_
 
+#include <Art/Device.h>
 #include <Art/CoreEdgeDetector.h>
+#include <Art/CoreTimer.h>
 #include <Art/Thread.h>
 #include <Art/Task.h>
 #include <Art/Pin.h>
-#include <Art/CoreTimer.h>
 #include <Art/Point.h>
 #include <Art/DataStore.h>
-#include <Art/Device.h>
 
 namespace Art
 {
@@ -49,6 +49,7 @@ namespace Art
 		virtual Word disableDevice();
 		void processTouchData(Word x, Word y, Word z);
 		void processTouchState(Bool value);
+
 	private:
 
 		class EdgeDetector : public CoreEdgeDetector
